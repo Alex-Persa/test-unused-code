@@ -1,4 +1,4 @@
-package aa;
+package somepackage.otherpackage;
 
 /**
  * Created by Alex on 5/14/2017.

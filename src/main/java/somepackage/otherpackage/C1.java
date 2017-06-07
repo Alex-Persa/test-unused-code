@@ -1,19 +1,21 @@
-package aa;
+package somepackage.otherpackage;
 
 /**
  * Created by Alex on 5/14/2017.
  */
-public class C2 implements I1 {
+public class C1 implements I1 {
     char[] defaultCharUnused;
     private char[] privateCharUnused;
     public char[] publicCharUnused;
     protected char[] protectedCharUnused;
 
     private int privateInitializedUnused = 1;
-    private int privateInitializedUsed = 1;
+    private int privateInitializedIncremeted = 1;
     private int privateUsed;
 
-
+    private static final int uncalledPrivateStaticFinalMethod() {
+        return 1;
+    }
 
     public void donothing(int usedInt, String unusedString) {
         usedMethodWithUnusedVar(usedInt);
@@ -23,8 +25,9 @@ public class C2 implements I1 {
 
     }
 
-    public int useSomeVars() {
-        return privateInitializedUsed + privateUsed;
+    public void useSomeVars() {
+        privateInitializedIncremeted ++;
+        privateUsed = privateUsed + 1;
     }
 
 

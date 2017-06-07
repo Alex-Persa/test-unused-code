@@ -1,9 +1,9 @@
-package aa;
+package somepackage.otherpackage;
 
 /**
  * Created by Alex on 5/14/2017.
  */
-public class C1 implements I1 {
+public class C2 implements I1 {
     char[] defaultCharUnused;
     private char[] privateCharUnused;
     public char[] publicCharUnused;
@@ -19,13 +19,12 @@ public class C1 implements I1 {
         usedMethodWithUnusedVar(usedInt);
     }
 
-    private void usedMethodWithUnusedVar(int unusedInt) {
+    private void usedMethodWithUnusedVar(int unusedParamInt) {
 
     }
 
-    public void useSomeVars() {
-        privateInitializedUsed ++;
-        privateUsed ++;
+    public int useSomeVars() {
+        return privateInitializedUsed + privateUsed;
     }
 
 
