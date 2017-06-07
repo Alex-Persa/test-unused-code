@@ -1,5 +1,6 @@
 package somepackage;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.IntPredicate;
 import java.util.prefs.PreferenceChangeListener;
 
@@ -59,5 +60,20 @@ public class Class1 {
         }
     }
 
+    // Atomic integer containing the next thread ID to be assigned
+    private final AtomicInteger nextId = new AtomicInteger(0);
+
+    // Thread local variable containing each thread's ID
+    private final ThreadLocal<Integer> threadId =
+            new ThreadLocal<Integer>() {
+                @Override protected Integer initialValue() {
+                    return nextId.getAndIncrement();
+                }
+            };
+
+    // Returns the current thread's unique ID, assigning it if necessary
+    public int get() {
+        return threadId.get();
+    }
 
 }
