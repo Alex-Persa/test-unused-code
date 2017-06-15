@@ -22,7 +22,7 @@ public class C1 implements I1 {
     }
 
     private void usedMethodWithUnusedVar(int unusedInt) {
-
+        System.out.println("nothing");
     }
 
     public void useSomeVars() {
